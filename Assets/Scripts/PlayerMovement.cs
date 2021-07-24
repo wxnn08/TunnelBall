@@ -19,6 +19,12 @@ public class PlayerMovement : MonoBehaviour {
 		UpdatePlayerVelocity();
 	}
 
+    private void OnTriggerEnter2D(Collider2D other) {
+        if(other.CompareTag("Wall")) {
+            Debug.Log("bateu");
+        }
+    }
+
 	void UpdateCameraPosition() {
 		Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, Camera.main.transform.position.z);
 	}
