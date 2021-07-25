@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour {
 
@@ -21,13 +22,13 @@ public class PlayerMovement : MonoBehaviour {
 		UpdatePlayerVelocity();
 	}
 
-    private void finishGame() {
-        Debug.Log("bateu");
+    private void wallCollision() {
+		SceneManager.LoadScene("EndScene");
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.CompareTag("Wall")) {
-            finishGame();
+           	wallCollision();
         }
     }
 
