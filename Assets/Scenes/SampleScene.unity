@@ -2345,6 +2345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerDirection: {x: 0, y: 0}
+  pfSpiderWeb: {fileID: 4223824747587118, guid: 0a94c020487a08e42b2ff08085a0485b, type: 3}
   speed: 5
 --- !u!212 &1332306057
 SpriteRenderer:
