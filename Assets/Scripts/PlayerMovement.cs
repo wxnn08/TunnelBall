@@ -19,9 +19,13 @@ public class PlayerMovement : MonoBehaviour {
 		UpdatePlayerVelocity();
 	}
 
+    private void finishGame() {
+        Debug.Log("bateu");
+    }
+
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.CompareTag("Wall")) {
-            Debug.Log("bateu");
+            finishGame();
         }
     }
 
