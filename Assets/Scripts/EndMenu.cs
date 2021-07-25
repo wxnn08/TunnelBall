@@ -7,4 +7,7 @@ public class EndMenu : MonoBehaviour {
 		SceneManager.LoadScene("GameplayScene");
 	}
 
+	public void QuitGame() {
+		Application.Quit();
+	}
 }
