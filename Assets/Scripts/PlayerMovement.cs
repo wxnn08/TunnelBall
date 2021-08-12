@@ -1,11 +1,9 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour {
 
 	public Vector2 playerDirection;
-    public Transform pfSpiderWeb;
-    public Transform spiderWeb;
+    public Transform webTransform;
 	Vector2 clickedPosition;
 	public float speed;
 	bool clicked;
@@ -20,17 +18,8 @@ public class PlayerMovement : MonoBehaviour {
 		GetMouseInput();
 		UpdateCameraPosition();
 		UpdatePlayerVelocity();
+		UpdateWeb();
 	}
-
-    private void wallCollision() {
-		SceneManager.LoadScene("EndScene");
-    }
-
-    private void OnTriggerEnter2D(Collider2D other) {
-        if(other.CompareTag("Wall")) {
-           	wallCollision();
-        }
-    }
 
 	void UpdateCameraPosition() {
 		Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, Camera.main.transform.position.z);
@@ -51,26 +40,29 @@ public class PlayerMovement : MonoBehaviour {
 		transform.position = playerPosition;
 	}
 
-    void CreateWeb() {
-        //a patifaria acontece aqui, comente o return por sua conta e risco
-        return;
-        Debug.Log("Criando teia");
-        Vector2 targetPosition = clickedPosition;
-		Vector2 playerPosition = transform.position;
-        Vector2 webDir = (targetPosition - playerPosition).normalized;
-        spiderWeb = Instantiate(pfSpiderWeb, playerPosition, Quaternion.identity);
-        spiderWeb.eulerAngles = new Vector3(0, 0, Vector3.Angle(playerPosition, targetPosition));
-        spiderWeb.GetComponent<SpriteRenderer>().size = new Vector2(
-            Vector3.Distance(playerPosition, targetPosition),
-            spiderWeb.GetComponent<SpriteRenderer>().size.y/2
-            );
-    }
+	void UpdateWeb() {
+		webTransform.position = clickedPosition;
+	}
+
+    //void CreateWeb() {
+    //    //a patifaria acontece aqui, comente o return por sua conta e risco
+    //    return;
+    //    Debug.Log("Criando teia");
+    //    Vector2 targetPosition = clickedPosition;
+	//	  Vector2 playerPosition = transform.position;
+    //    Vector2 webDir = (targetPosition - playerPosition).normalized;
+    //    spiderWeb = Instantiate(pfSpiderWeb, playerPosition, Quaternion.identity);
+    //    spiderWeb.eulerAngles = new Vector3(0, 0, Vector3.Angle(playerPosition, targetPosition));
+    //    spiderWeb.GetComponent<SpriteRenderer>().size = new Vector2(
+    //        Vector3.Distance(playerPosition, targetPosition),
+    //        spiderWeb.GetComponent<SpriteRenderer>().size.y/2
+    //        );
+    //}
 
 	void GetMouseInput() {
 		if(Input.GetMouseButton(0)) {
 			clickedPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 			clicked = true;
-            CreateWeb();
 		}
 		if(Input.GetMouseButtonUp(1)) {
 			clicked = false;
