@@ -33,7 +33,6 @@ public class PlayerMovement : MonoBehaviour {
 			Vector2 p = Vector2.Perpendicular(c);
 			float proj = Vector2.Dot(playerDirection, p);
 			playerDirection = (proj < 0 ? -1 : 1) * p.normalized;
-
 		}
 
 		playerPosition += playerDirection * speed * Time.deltaTime;
@@ -47,7 +46,7 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 	void GetMouseInput() {
-		if(Input.GetMouseButton(0)) {
+		if(Input.GetMouseButtonUp(0)) {
 			clickedPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 			clicked = true;
 		}
