@@ -42,22 +42,9 @@ public class PlayerMovement : MonoBehaviour {
 
 	void UpdateWeb() {
 		webTransform.position = clickedPosition;
-	}
 
-    //void CreateWeb() {
-    //    //a patifaria acontece aqui, comente o return por sua conta e risco
-    //    return;
-    //    Debug.Log("Criando teia");
-    //    Vector2 targetPosition = clickedPosition;
-	//	  Vector2 playerPosition = transform.position;
-    //    Vector2 webDir = (targetPosition - playerPosition).normalized;
-    //    spiderWeb = Instantiate(pfSpiderWeb, playerPosition, Quaternion.identity);
-    //    spiderWeb.eulerAngles = new Vector3(0, 0, Vector3.Angle(playerPosition, targetPosition));
-    //    spiderWeb.GetComponent<SpriteRenderer>().size = new Vector2(
-    //        Vector3.Distance(playerPosition, targetPosition),
-    //        spiderWeb.GetComponent<SpriteRenderer>().size.y/2
-    //        );
-    //}
+		//TODO: update webTransform.eulerAngles
+	}
 
 	void GetMouseInput() {
 		if(Input.GetMouseButton(0)) {
@@ -69,4 +56,20 @@ public class PlayerMovement : MonoBehaviour {
 		}
 
 	}
+
+
+	//void CreateWeb() {
+	//    //a patifaria acontece aqui, comente o return por sua conta e risco
+	//    return;
+	//    Debug.Log("Criando teia");
+	//    Vector2 targetPosition = clickedPosition;
+	//	  Vector2 playerPosition = transform.position;
+	//    Vector2 webDir = (targetPosition - playerPosition).normalized;
+	//    spiderWeb = Instantiate(pfSpiderWeb, playerPosition, Quaternion.identity);
+	//    spiderWeb.eulerAngles = new Vector3(0, 0, Vector3.Angle(playerPosition, targetPosition));
+	//    spiderWeb.GetComponent<SpriteRenderer>().size = new Vector2(
+	//        Vector3.Distance(playerPosition, targetPosition),
+	//        spiderWeb.GetComponent<SpriteRenderer>().size.y/2
+	//        );
+	//}
 }
