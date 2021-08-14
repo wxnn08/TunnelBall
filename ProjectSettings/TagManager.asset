@@ -7,6 +7,8 @@ TagManager:
   - Wall
   - Path
   - Obstacle
+  - VerticalWall
+  - HorizontalWall
   layers:
   - Default
   - TransparentFX
