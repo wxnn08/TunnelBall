@@ -41,8 +41,10 @@ public class PlayerMovement : MonoBehaviour {
 
 	void UpdateWeb() {
 		webTransform.position = clickedPosition;
-
-		//TODO: update webTransform.eulerAngles
+		webTransform.localScale = new Vector3(Vector3.Distance(webTransform.position, transform.position), 1, 0);
+		Vector3 dir = transform.position - webTransform.position;
+		float angle = Mathf.Atan2(dir.y, dir.x ) * Mathf.Rad2Deg;  
+		webTransform.rotation = Quaternion.Euler( 0f, 0f, angle);
 	}
 
 	void GetMouseInput() {
