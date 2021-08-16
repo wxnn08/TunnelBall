@@ -12,6 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/GameplayScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/EndScene.unity
+    path: Assets/Scenes/LoseScene.unity
     guid: 139c5f22bcc4a7ae887652a3c454f3c1
+  - enabled: 1
+    path: Assets/Scenes/LevelSelection.unity
+    guid: 7b34994f9d4628a7c866720624f2e46d
+  - enabled: 1
+    path: Assets/Scenes/WinScene.unity
+    guid: a05cf2a94a6d2a2ddac7637cf0e10b75
   m_configObjects: {}

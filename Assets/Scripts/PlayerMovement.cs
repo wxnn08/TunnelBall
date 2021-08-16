@@ -4,17 +4,23 @@ public class PlayerMovement : MonoBehaviour {
 
 	public Vector2 playerDirection;
     public Transform webTransform;
+	public GameObject maps;
 	Vector2 clickedPosition;
 	public float speed;
 	bool clicked;
 	bool firstClick;
 	
     void Start() {
+		SetupPlayerBeginPosition();
 		playerDirection = new Vector2(1, 0);
 		clicked = false;
         firstClick = false;
-            webTransform.position = new Vector2(-100,-100);
+        webTransform.position = new Vector2(-100,-100);
     }
+
+	void SetupPlayerBeginPosition() {
+		transform.position = LevelSetup.Instance.beginPosition;
+	}
 
     // Update is called once per frame
     void Update() {

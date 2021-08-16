@@ -9,6 +9,7 @@ TagManager:
   - Obstacle
   - VerticalWall
   - HorizontalWall
+  - End
   layers:
   - Default
   - TransparentFX
